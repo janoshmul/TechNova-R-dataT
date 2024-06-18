@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Pico Data</title>
+    <script src="/socket.io/socket.io.js"></script>
+</head>
+
+<body>
+    <h1>Data from Raspberry Pi Pico</h1>
+    <div id="data"></div>
+
+    <script>
+        const socket = io();
+
+        socket.on('data', (data) => {
+            document.getElementById('data').innerText = JSON.stringify(data);
+        });
+    </script>
+</body>
+
+</html>
